@@ -144,7 +144,7 @@ public class Main {
     }
     //Задача 14
     public static void retLenArray() {
-        int len = 10; int initialValue = 4;
+        int len = 12; int initialValue = 4;
         int[] array = new int [len];
         for (int i = 0; i < array.length; i++) {
             array[i] = initialValue;
