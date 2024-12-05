@@ -2,21 +2,51 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        Employee[] person = new Employee[5];
-        person[0] = new Employee("Antonov Sergey", "director", "antserg@mailbox.com", "89631751245", 150000, 47);
-        person[1] = new Employee("Vasilyeva Elena", "accountant", "vaselena@mailbox.com", "89030785327", 75000, 41);
-        person[2] = new Employee("Baranova Irina", "cashier", "barina@mailbox.com", "89065782803", 40000, 35);
-        person[3] = new Employee("Nikolaev Alexey", "manager", "nikolalex@mailbox.com", "89530864952", 65000, 32);
-        person[4] = new Employee("Vorotnikov Andrey", "driver", "vorotnik@mailbox.com", "89027260168", 35000, 28);
-        for (Employee employee : person) {
-            employee.printInfo();
+        // Задача 1
+        Cat cat1 = new Cat("Туман");
+        Cat cat2 = new Cat("Дымок");
+        Cat cat3 = new Cat("Агат");
+
+        Dog dog1 = new Dog("Вулкан");
+        Dog dog2 = new Dog("Изюм");
+        Dog dog3 = new Dog("Лёва");
+        // Бег и плавание_коты
+        cat1.run(100);
+        cat2.run(210);
+        cat3.swim(5);
+        // Бег и плавание_собаки
+        dog1.run(400);
+        dog2.run(550);
+        dog3.swim(5);
+        dog3.swim(15);
+        //Проверка сытости
+        Cat.FoodBowl foodBowl = new Cat.FoodBowl(10);
+        Cat[] cats = {cat1, cat2, cat3};
+        for (Cat cat : cats) {
+            cat.eat(foodBowl, 15);
+            System.out.println("Сытость кота " + cat.isFull());
         }
+        System.out.println("Количество котов: " + Cat.countCat);
+        System.out.println("Количество собак: " + Dog.countDog);
+        System.out.println("Количество животных: " + Animal.countAnimal);
 
-          Park park = new Park("Парк");
-          Park.Attraction attraction = park.new Attraction("Калипсо", "10:00 - 17:00", 500);
-          attraction.printInfo();
+        //Задача 2
+        Shape circle = new Circle(6.0, "жёлтый", "красный");
+        Shape restangle = new Restangle(5.0, 4.0,"зелёный","синий");
+        Shape triangle = new Triangle(6.0, 6.0, 8.0,",белый", "розовый");
+
+        System.out.println("Характеристика круга:");
+        circle.printInfo();
+        System.out.println();
+
+        System.out.println("Характеристика прямоугольника:");
+        restangle.printInfo();
+        System.out.println();
+
+        System.out.println("Характеристика треугольника:");
+        triangle.printInfo();
+        System.out.println();
     }
-
 }
 
 
