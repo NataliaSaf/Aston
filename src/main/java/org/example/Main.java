@@ -31,7 +31,7 @@ public class Main {
         System.out.println("Количество животных: " + Animal.countAnimal);
 
         //Задача 2
-        Shape circle = new Circle(6.0, "жёлтый", "красный");
+        Shape circle = new Circle(4.0, "жёлтый", "красный");
         Shape restangle = new Restangle(5.0, 4.0,"зелёный","синий");
         Shape triangle = new Triangle(6.0, 6.0, 8.0,",белый", "розовый");
 
