@@ -12,9 +12,10 @@ public class Main {
             employee.printInfo();
         }
 
-          Park park = new Park("Парк");
-          Park.Attraction attraction = park.new Attraction("Калипсо", "10:00 - 17:00", 500);
-          attraction.printInfo();
+          Park park = new Park("Парк Гагарина", 1);
+          park.addAttraction(0, "Калипсо", "10:00 - 17:00", 500);
+
+          park.printAttractions();
     }
 
 }
