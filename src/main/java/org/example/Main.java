@@ -20,12 +20,14 @@ public class Main {
         dog3.swim(5);
         dog3.swim(15);
         //Проверка сытости
-        Cat.FoodBowl foodBowl = new Cat.FoodBowl(10);
+        FoodBowl foodBowl = new FoodBowl(10);
+
         Cat[] cats = {cat1, cat2, cat3};
         for (Cat cat : cats) {
             cat.eat(foodBowl, 15);
             System.out.println("Сытость кота " + cat.isFull());
         }
+
         System.out.println("Количество котов: " + Cat.countCat);
         System.out.println("Количество собак: " + Dog.countDog);
         System.out.println("Количество животных: " + Animal.countAnimal);

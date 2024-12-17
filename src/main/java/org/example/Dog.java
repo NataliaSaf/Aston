@@ -1,7 +1,7 @@
 package org.example;
 
 public class Dog extends Animal{
-    public String name;
+    final String name;
     static int countDog = 0;
 
     public Dog(String name){
@@ -25,6 +25,7 @@ public class Dog extends Animal{
         }
     }
     public static int getCountDog(){
+
         return countDog;
     }
 }
