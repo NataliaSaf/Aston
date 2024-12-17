@@ -12,7 +12,7 @@ public class Main {
        phoneDirectory.add("Бородин", "+79065892314");
        phoneDirectory.add("Варганов", "+79027594612");
        phoneDirectory.add("Тарелкин", "+79084233566");
-       phoneDirectory.add("Варганов", "+79630258752");
+       phoneDirectory.add("Варганов", "+79630258753");
 
        System.out.println(phoneDirectory.get("Антонов"));
        System.out.println(phoneDirectory.get("Бородин"));
