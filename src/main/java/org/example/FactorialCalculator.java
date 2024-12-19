@@ -1,3 +1,5 @@
+package org.example;
+
 public class FactorialCalculator {
 
     public int factorial(int n) {
