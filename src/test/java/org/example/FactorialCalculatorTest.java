@@ -1,5 +1,7 @@
-import org.example.FactorialCalculator;
+package org.example;
+
 import org.testng.annotations.Test;
+
 import static org.testng.Assert.assertEquals;
 
 public class FactorialCalculatorTest {
