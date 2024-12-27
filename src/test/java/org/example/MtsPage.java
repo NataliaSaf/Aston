@@ -21,7 +21,7 @@ public class MtsPage {
     //Локатор для кнопки принятия cookie
     final By cookieAcceptButton = By.id("cookie-agree");
 
-    //Локатор для заголовка блока
+    //Локатор для названия блока
     final By blockTitle = By.cssSelector(".pay__wrapper h2");
 
     //Локаторы для логотипов платежных систем
