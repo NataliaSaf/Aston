@@ -1,5 +1,6 @@
 package org.example;
 
+import io.qameta.allure.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -15,6 +16,7 @@ import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Epic("Автотесты для сайта mts.by.")
 public class MtsByTests {
 
     private WebDriver driver;
@@ -22,6 +24,7 @@ public class MtsByTests {
     private PaymentPage paymentPage;
 
     @BeforeEach
+    @Step("НастройкаWebDriver, открытие страницы mts и принятие cookie")
     public void setUp(){
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -35,7 +38,7 @@ public class MtsByTests {
     }
 
     @Test
-    @DisplayName("Проверка названия блока")
+    @Description("Проверка названия блока")
     public void testCheckBlockTitle(){
         String actualBlockTitle = mtsPage.getBlockTitle();
         String expectedBlockTitle = "Онлайн пополнение без комиссии";
@@ -43,7 +46,7 @@ public class MtsByTests {
     }
 
     @Test
-    @DisplayName("Проверка наличия логотипов платежных систем")
+    @Description("Проверка наличия логотипов платежных систем")
     public void testPaymentSystemLogos(){
         assertTrue(mtsPage.isVisaLogoDisplayed(), "Логотип Visa не найден");
         assertTrue(mtsPage.isMastercardLogoDisplayed(), "Логотип MasterCard не найден");
@@ -51,7 +54,7 @@ public class MtsByTests {
     }
 
     @Test
-    @DisplayName("Проверка работы ссылки 'Подробнее о сервисе'")
+    @Description("Проверка работы ссылки 'Подробнее о сервисе'")
     public void testMoreServiceLink(){
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -66,7 +69,7 @@ public class MtsByTests {
     }
 
     @Test
-    @DisplayName("Проверка плейсхолдеров формы оплаты 'Услуги связи'")
+    @Description("Проверка плейсхолдеров формы оплаты 'Услуги связи'")
     public void testCheckConnectionPlaceholders(){
         mtsPage.openDropdown();
         mtsPage.selectServiceOption("Услуги связи");
@@ -77,7 +80,7 @@ public class MtsByTests {
     }
 
     @Test
-    @DisplayName("Проверка плейсхолдеров формы оплаты 'Домашний интернет'")
+    @Description("Проверка плейсхолдеров формы оплаты 'Домашний интернет'")
     public void testCheckInternetPlaceholders(){
         mtsPage.openDropdown();
         mtsPage.selectServiceOption("Домашний интернет");
@@ -88,7 +91,7 @@ public class MtsByTests {
     }
 
     @Test
-    @DisplayName("Проверка плейсхолдеров формы оплаты 'Рассрочка'")
+    @Description("Проверка плейсхолдеров формы оплаты 'Рассрочка'")
     public void testCheckInstalmentPlaceholders(){
         mtsPage.openDropdown();
         mtsPage.selectServiceOption("Рассрочка");
@@ -99,7 +102,7 @@ public class MtsByTests {
     }
 
     @Test
-    @DisplayName("Проверка плейсхолдеров формы оплаты 'Задолженность'")
+    @Description("Проверка плейсхолдеров формы оплаты 'Задолженность'")
     public void testCheckArrearsPlaceholders(){
         mtsPage.openDropdown();
         mtsPage.selectServiceOption("Задолженность");
@@ -110,7 +113,7 @@ public class MtsByTests {
     }
 
     @Test
-    @DisplayName("Проверка корректности отображения информации в окне оплаты")
+    @Description("Проверка корректности отображения информации в окне оплаты")
     public void testPaymentForm() {
         String phoneNumber = "297777777";
         String summa = "50.00";
@@ -134,6 +137,7 @@ public class MtsByTests {
     }
 
     @AfterEach
+    @Step("Закрытие браузера")
     public void tearDown(){
         if (driver != null){
             driver.quit();
@@ -141,17 +145,17 @@ public class MtsByTests {
 
     }
 
-    //Метод для заполнения полей формы оплаты и нажатия на кнопку "Продолжить"
+    @Step("Заполнение полей формы оплаты и нажатие на кнопку 'Продолжить'")
     public void fillAndContinuePayForm(String phoneNumber, String summa, String email){
         mtsPage.fillPaymentForm(phoneNumber, summa, email );
         mtsPage.clickContinueButton();
     }
-    //Формат отображения номера телефона в окне подтверждения оплаты
+    @Step("Формат отображения номера телефона в окне подтверждения оплаты")
     private String formatPhoneNumber(String phoneNumber){
         return "Оплата: Услуги связи Номер:375" + phoneNumber;
     }
 
-    //Формат отображения суммы в окне подтверждения оплаты
+    @Step("Формат отображения суммы в окне подтверждения оплаты")
     private String formatSumma(String summa){
         if (!summa.contains(".")) {
             summa += ".00";
