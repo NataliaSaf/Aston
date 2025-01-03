@@ -24,7 +24,7 @@ public class MtsByTests {
     private PaymentPage paymentPage;
 
     @BeforeEach
-    @Step("НастройкаWebDriver, открытие страницы mts и принятие cookie")
+    @Step("Настройка WebDriver, открытие страницы mts и принятие cookie")
     public void setUp(){
         driver = new ChromeDriver();
         driver.manage().window().maximize();
